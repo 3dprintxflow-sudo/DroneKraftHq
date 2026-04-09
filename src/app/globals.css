@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --neon: #00f3ff;
+  --neon-dim: rgba(0, 243, 255, 0.15);
+  --neon-glow: rgba(0, 243, 255, 0.4);
+  --bg-base: #030810;
+  --bg-card: rgba(0, 243, 255, 0.03);
+  --grid-line: rgba(0, 243, 255, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-base);
+  color: #e8f4f8;
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Futuristic Scrollbar ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #030810; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00f3ff, #0066ff);
+  border-radius: 10px;
+}
+
+/* ── Glassmorphism ── */
+.glass {
+  background: rgba(0, 243, 255, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 243, 255, 0.12);
+}
+
+.glass-strong {
+  background: rgba(0, 15, 30, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(0, 243, 255, 0.2);
+}
+
+/* ── Neon Text Glow ── */
+.text-neon {
+  color: #00f3ff;
+  text-shadow: 0 0 10px rgba(0, 243, 255, 0.8), 0 0 30px rgba(0, 243, 255, 0.4);
+}
+
+/* ── Neon Border Pulse ── */
+.neon-border {
+  border: 1px solid rgba(0, 243, 255, 0.4);
+  box-shadow: 0 0 12px rgba(0, 243, 255, 0.2), inset 0 0 12px rgba(0, 243, 255, 0.05);
+}
+
+/* ── Cyber Grid Background ── */
+.cyber-grid {
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* ── Gradient text ── */
+.gradient-text {
+  background: linear-gradient(135deg, #00f3ff 0%, #0088ff 50%, #00f3ff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* ── Scan line overlay ── */
+.scanline::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0, 243, 255, 0.015) 3px,
+    rgba(0, 243, 255, 0.015) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Neon Button ── */
+.btn-neon {
+  position: relative;
+  background: transparent;
+  border: 1px solid #00f3ff;
+  color: #00f3ff;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.btn-neon::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #00f3ff, #0066ff);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.btn-neon:hover::before { opacity: 1; }
+.btn-neon:hover { color: #030810; box-shadow: 0 0 30px rgba(0, 243, 255, 0.5); }
+.btn-neon span { position: relative; z-index: 1; }
+
+/* ── Solid Neon Button ── */
+.btn-neon-solid {
+  background: linear-gradient(135deg, #00f3ff, #0088ff);
+  color: #030810;
+  font-weight: 900;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+}
+.btn-neon-solid:hover {
+  box-shadow: 0 0 40px rgba(0, 243, 255, 0.6), 0 0 80px rgba(0, 243, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* ── Input Fields ── */
+.input-neon {
+  background: rgba(0, 243, 255, 0.04);
+  border: 1px solid rgba(0, 243, 255, 0.15);
+  color: #e8f4f8;
+  transition: all 0.3s ease;
+}
+.input-neon::placeholder { color: rgba(232, 244, 248, 0.3); }
+.input-neon:focus {
+  outline: none;
+  border-color: #00f3ff;
+  box-shadow: 0 0 16px rgba(0, 243, 255, 0.25), inset 0 0 8px rgba(0, 243, 255, 0.05);
+  background: rgba(0, 243, 255, 0.07);
+}
+
+/* ── Animations ── */
+@keyframes shimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulse-neon {
+  0%, 100% { box-shadow: 0 0 10px rgba(0, 243, 255, 0.3); }
+  50% { box-shadow: 0 0 30px rgba(0, 243, 255, 0.7), 0 0 60px rgba(0, 243, 255, 0.3); }
+}
+
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-float { animation: float 4s ease-in-out infinite; }
+.animate-pulse-neon { animation: pulse-neon 2s ease-in-out infinite; }
+.animate-fade-up { animation: fade-up 0.6s ease forwards; }
+
+/* ── Stats counter glow ── */
+.stat-value {
+  font-family: 'Orbitron', monospace;
+  color: #00f3ff;
+  text-shadow: 0 0 20px rgba(0, 243, 255, 0.6);
+}
+
+/* ── Section label ── */
+.section-label {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.35em;
+  color: #00f3ff;
+  text-transform: uppercase;
+}
+
+/* ── Booking form label ── */
+.booking-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(0, 243, 255, 0.65);
+}
+
+/* ── Loader spin ── */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Responsive: stack form 2-col → 1-col on small screens ── */
+@media (max-width: 600px) {
+  form[style*="grid-template-columns"] {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  form[style*="grid-template-columns"] > * {
+    grid-column: unset !important;
+  }
+}
