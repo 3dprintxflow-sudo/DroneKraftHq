@@ -169,11 +169,15 @@ export default function Home() {
         {/* BG image */}
         <div style={{ position: "absolute", inset: 0 }}>
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(3,8,16,0.6), rgba(3,8,16,0.5), #030810)", zIndex: 1 }} />
-          <img
-            src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?q=80&w=2070"
-            alt="Drone aerial background"
-            style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.25 }}
-          />
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.35 }}
+          >
+            <source src="https://videos.pexels.com/video-files/3209828/3209828-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+          </video>
         </div>
 
         {/* Content */}

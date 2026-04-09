@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Orbitron, Inter } from "next/font/google";
 import "./globals.css";
+import BottomNav from "@/components/BottomNav";
+
 
 const orbitron = Orbitron({
   variable: "--font-orbitron",
@@ -38,6 +40,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-droneblack text-white">
         {children}
+        <BottomNav />
       </body>
     </html>
   );
