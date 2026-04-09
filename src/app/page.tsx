@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import {
   Camera, Map, Shield, GraduationCap,
   ArrowRight, MessageCircle, ChevronDown,
@@ -9,11 +9,11 @@ import Navbar from "@/components/Navbar";
 import BookingForm from "@/components/BookingForm";
 
 /* ── Animation variants ── */
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 32 },
   show:   { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
-const stagger = { show: { transition: { staggerChildren: 0.12 } } };
+const stagger: Variants = { show: { transition: { staggerChildren: 0.12 } } };
 
 /* ── Data ── */
 const STATS = [
