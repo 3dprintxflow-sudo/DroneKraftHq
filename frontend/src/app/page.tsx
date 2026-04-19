@@ -151,13 +151,8 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [servRes, statsRes] = await Promise.all([
-          api.get("/services"),
-          api.get("/admin/stats").catch(() => null), // Fallback if not admin/logged in
-        ]);
-        
-        if (servRes.data) setServices(servRes.data);
-        if (statsRes?.data?.bookings) setMissionCount(`${statsRes.data.bookings}+`);
+        const res = await api.get("/services");
+        if (res.data) setServices(res.data);
       } catch (err) {
         console.error("Home data fetch failed", err);
       } finally {
