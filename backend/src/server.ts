@@ -21,7 +21,7 @@ const PORT = process.env.PORT || 8000;
 app.use(cors({
   origin: [
     "http://localhost:3000",
-    "https://dronekrafthq.netlify.app"
+    "https://dronekrafthq-1.onrender.com"
   ],
   credentials: true
 }));
