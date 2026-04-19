@@ -1,0 +1,30 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "DroneKraft API",
+    "description": "Backend API for DroneKraft - UAV Solutions",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/bookings": {
+      "get": {
+        "summary": "List bookings",
+        "tags": ["Bookings"],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create booking",
+        "tags": ["Bookings"],
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      }
+    }
+  }
+}
